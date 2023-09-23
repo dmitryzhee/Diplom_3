@@ -8,6 +8,10 @@ public class RegistrationPageBurger {
 
   private WebDriver driver;
 
+  public RegistrationPageBurger(WebDriver driver) {
+    this.driver = driver;
+  }
+
   //поле "Имя"
   private By nameField = By.xpath("//label[text()='Имя']");
   //поле "Email"
