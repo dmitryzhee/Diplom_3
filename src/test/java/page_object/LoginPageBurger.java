@@ -14,5 +14,9 @@ public class LoginPageBurger {
   //ссылка на регистрацию
   private By registerLink = By.xpath("//a[text()='Зарегистрироваться']");
 
+  public void clickRegisterLink() {
+    driver.findElement(registerLink).click();
+  }
+
 
 }

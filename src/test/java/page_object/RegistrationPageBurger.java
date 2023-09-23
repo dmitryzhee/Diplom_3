@@ -13,11 +13,11 @@ public class RegistrationPageBurger {
   }
 
   //поле "Имя"
-  private By nameField = By.xpath("//label[text()='Имя']");
+  private By nameField = By.xpath("//label[text()='Имя']/following-sibling::input");
   //поле "Email"
-  private By emailField = By.xpath("//label[text()='Email']");
+  private By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
   //поле "Пароль"
-  private By passwordField = By.xpath("//label[text()='Пароль']");
+  private By passwordField = By.xpath("//label[text()='Пароль']/following-sibling::input");
   //кнопка "Зарегистрироваться"
   private By registerButton = By.xpath("//button[text()='Зарегистрироваться']");
 

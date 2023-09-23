@@ -14,6 +14,10 @@ public class MainPageBurger {
   //кнопка "Личный кабинет"
   private By profileButton = By.xpath("//p[text()='Личный Кабинет']");
 
+  public void pressProfileButton() {
+    driver.findElement(profileButton).click();
+  }
+
 
 
 }
