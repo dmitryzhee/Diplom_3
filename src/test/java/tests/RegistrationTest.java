@@ -9,7 +9,6 @@ import page_object.RegistrationPageBurger;
 
 public class RegistrationTest extends BaseTest{
 
-
   private MainPageBurger mainPageBurger;
 
   private LoginPageBurger loginPageBurger;

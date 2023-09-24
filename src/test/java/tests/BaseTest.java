@@ -14,7 +14,7 @@ public class BaseTest implements TestData{
   @Before
   public void setUp() {
     driver = new ChromeDriver();
-    driver.get(BASE_URL);
+    driver.get(BASE_URI);
     driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
   }

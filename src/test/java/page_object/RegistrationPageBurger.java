@@ -21,6 +21,10 @@ public class RegistrationPageBurger {
   //кнопка "Зарегистрироваться"
   private By registerButton = By.xpath("//button[text()='Зарегистрироваться']");
 
+  //ссылка "Войти"
+  private By loginLink = By.xpath("//a[text()='Войти']");
+
+
   public void fillNameField (String name) {
     driver.findElement(nameField).click();
     driver.findElement(nameField).sendKeys(name);
@@ -45,6 +49,10 @@ public class RegistrationPageBurger {
     fillEmailField(email);
     fillPasswordField(password);
     pressRegisterButton();
+  }
+
+  public void clickLoginLink() {
+    driver.findElement(loginLink).click();
   }
 
 
