@@ -14,7 +14,7 @@ public interface TestData {
 
   Random random = new Random();
 
-  User USER = User.builder().email("burger-test@test.com").password("Aa12345").name("Alex").build();
+  User USER = User.builder().email("burgertest437@testburger.com").password("Ab12345!").name("TestyBurger").build();
 
   User RANDOM_USER = User.builder().email(String.format("test-burger%s@test.com", random.nextInt(9999))).password("Aa12345").name("John").build();
 
