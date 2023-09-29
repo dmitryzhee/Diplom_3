@@ -17,6 +17,15 @@ public class MainPageBurger {
   //кнопка "Войти в аккаунт"
   private By loginLink = By.xpath("//p[text()='Личный Кабинет']");
 
+  //ссылка на "Конструктор"
+  private By constructorLink = By.xpath("//p[text()='Конструктор']");
+
+  //заголовок секции конструктора "Булки"
+  private By bunSectionHeader = By.xpath("//span[text()='Булки']");
+
+  public By getBunSectionHeader() {
+    return bunSectionHeader;
+  }
 
   public void pressProfileButton() {
     driver.findElement(profileButton).click();
@@ -24,6 +33,10 @@ public class MainPageBurger {
 
   public void clickLoginLink() {
     driver.findElement(loginLink).click();
+  }
+
+  public void clickConstructorLink() {
+    driver.findElement(constructorLink).click();
   }
 
 

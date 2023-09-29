@@ -1,8 +1,6 @@
 package tests;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import page_object.LoginPageBurger;
 import page_object.MainPageBurger;
 import page_object.RegistrationPageBurger;

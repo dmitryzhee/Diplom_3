@@ -26,7 +26,9 @@ public class LoginPageBurger {
   //кнопка "Войти"
   private By loginButton = By.xpath("//button[text()='Войти']");
 
-
+  public By getLoginButton() {
+    return loginButton;
+  }
 
   public void clickRegisterLink() {
     driver.findElement(registerLink).click();

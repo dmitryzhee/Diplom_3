@@ -4,13 +4,14 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import page_object.LoginPageBurger;
 import page_object.MainPageBurger;
 import page_object.ProfilePageBurger;
 
-public class LogoutTest extends BaseTest implements TestData{
+public class ProfileTest extends BaseTest implements TestData{
 
   private BurgersClient client = new BurgersClient();
   private RequestSpecification requestSpecification;
@@ -25,6 +26,7 @@ public class LogoutTest extends BaseTest implements TestData{
             .setContentType(ContentType.JSON)
             .build();
     client.setRequestSpecification(requestSpecification);
+
   }
 
   @After
@@ -46,6 +48,20 @@ public class LogoutTest extends BaseTest implements TestData{
     loginPageBurger.login(user.getEmail(), user.getPassword());
     mainPageBurger.pressProfileButton();
     profilePageBurger.logout();
+    Assert.assertTrue(isElementPresent(loginPageBurger.getLoginButton()));
+  }
+
+  @Test
+  public void returnToConstructorSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    mainPageBurger.clickLoginLink();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+    mainPageBurger.pressProfileButton();
+    mainPageBurger.clickConstructorLink();
+    Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
   }
 
 }
