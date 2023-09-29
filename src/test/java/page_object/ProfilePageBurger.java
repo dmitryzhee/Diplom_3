@@ -14,6 +14,10 @@ public class ProfilePageBurger {
   //кнопка "Выйти"
   private By logoutButton = By.xpath("//button[text()='Выход']");
 
+  public By getLogoutButton() {
+    return logoutButton;
+  }
+
   public void logout() {
     driver.findElement(logoutButton).click();
   }

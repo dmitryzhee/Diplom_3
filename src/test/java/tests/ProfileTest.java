@@ -38,6 +38,19 @@ public class ProfileTest extends BaseTest implements TestData{
   }
 
   @Test
+  public void goToProfileSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    ProfilePageBurger profilePageBurger = new ProfilePageBurger(driver);
+    mainPageBurger.clickLoginLink();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+    mainPageBurger.pressProfileButton();
+    Assert.assertTrue(isElementPresent(profilePageBurger.getLogoutButton()));
+  }
+
+  @Test
   public void profileLogoutSuccess() {
     user = USER;
     client.createUser(user);
