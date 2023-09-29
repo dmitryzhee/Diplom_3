@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import page_object.LoginPageBurger;
 import page_object.MainPageBurger;
+import page_object.RegistrationPageBurger;
+import page_object.RestorePasswordPage;
 
 
 public class LoginTest extends BaseTest implements TestData {
@@ -32,6 +34,7 @@ public class LoginTest extends BaseTest implements TestData {
     if (user.equals(USER)) {
       Authorization authorization = client.login(user).extract().as(Authorization.class);
       client.deleteUser(authorization.getAccessToken());}
+    super.tearDown();
   }
 
   @Test
@@ -43,4 +46,42 @@ public class LoginTest extends BaseTest implements TestData {
     mainPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
   }
+
+  @Test
+  public void profileLoginSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    mainPageBurger.pressProfileButton();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+  }
+
+  @Test
+  public void registrationPageLoginSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    RegistrationPageBurger registrationPageBurger = new RegistrationPageBurger(driver);
+    mainPageBurger.clickLoginLink();
+    loginPageBurger.clickRegisterLink();
+    registrationPageBurger.clickLoginLink();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+  }
+
+  @Test
+  public void restorePasswordPageLoginSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    RestorePasswordPage restorePasswordPage = new RestorePasswordPage(driver);
+    mainPageBurger.clickLoginLink();
+    loginPageBurger.clickRestorePasswordLink();
+    restorePasswordPage.clickLoginLink();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+  }
+
+
 }
