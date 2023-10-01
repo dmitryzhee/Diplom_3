@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -15,6 +14,7 @@ public class BaseTest implements TestData{
 
   @Before
   public void setUp() {
+//    System.setProperty("webdriver.chrome.driver", "yandexdriver");
     driver = new ChromeDriver();
     driver.get(BASE_URI);
     driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
