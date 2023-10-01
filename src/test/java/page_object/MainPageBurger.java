@@ -30,10 +30,24 @@ public class MainPageBurger {
   //заголовок выбранной в данный момент секция конструктора
   private By currentSectionHeader = By.xpath("//div[contains(@class, 'tab_type_current')]");
 
+  private By parentSection = By.xpath("..");
+
 
 
   public By getBunSectionHeader() {
     return bunSectionHeader;
+  }
+
+  public By getSauceSectionHeader() {
+    return sauceSectionHeader;
+  }
+
+  public By getFillingSectionHeader() {
+    return fillingSectionHeader;
+  }
+
+  public By getParentSection() {
+    return parentSection;
   }
 
   public By getCurrentSectionHeader() {

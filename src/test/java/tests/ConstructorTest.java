@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import page_object.LoginPageBurger;
 import page_object.MainPageBurger;
 
@@ -15,6 +16,11 @@ public class ConstructorTest extends BaseTest implements TestData {
 
   private BurgersClient client = new BurgersClient();
   private RequestSpecification requestSpecification;
+
+  private MainPageBurger mainPageBurger;
+
+  private LoginPageBurger loginPageBurger;
+
 
   private User user;
 
@@ -26,6 +32,12 @@ public class ConstructorTest extends BaseTest implements TestData {
             .setContentType(ContentType.JSON)
             .build();
     client.setRequestSpecification(requestSpecification);
+    user = USER;
+    client.createUser(user);
+    mainPageBurger = new MainPageBurger(driver);
+    loginPageBurger = new LoginPageBurger(driver);
+    mainPageBurger.clickProfileButton();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
   }
 
   @After
@@ -37,14 +49,33 @@ public class ConstructorTest extends BaseTest implements TestData {
   }
 
   @Test
-  public void sectionSelectSuccess() {
-    user = USER;
-    client.createUser(user);
-    MainPageBurger mainPageBurger = new MainPageBurger(driver);
-    mainPageBurger.clickConstructorLink();
+  public void bunSectionSelectSuccess() {
+    Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
+    mainPageBurger.clickFillingSectionHeader();
+    mainPageBurger.clickBunSectionHeader();
+    WebElement bunSectionHeader = driver.findElement(mainPageBurger.getBunSectionHeader());
+    WebElement currentSectionHeaderExpected = bunSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
+    Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
+  }
 
+  @Test
+  public void sauceSectionSelectSuccess() {
+    Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
+    mainPageBurger.clickSauceSectionHeader();
+    WebElement sauceSectionHeader = driver.findElement(mainPageBurger.getSauceSectionHeader());
+    WebElement currentSectionHeaderExpected = sauceSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
+    Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
+  }
 
-
-
+  @Test
+  public void fillingSectionSelectSuccess() {
+    Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
+    mainPageBurger.clickFillingSectionHeader();
+    WebElement fillingSectionHeader = driver.findElement(mainPageBurger.getFillingSectionHeader());
+    WebElement currentSectionHeaderExpected = fillingSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
+    Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
   }
 }
