@@ -14,7 +14,7 @@ public class BaseTest implements TestData{
 
   @Before
   public void setUp() {
-//    System.setProperty("webdriver.chrome.driver", "yandexdriver");
+//    System.setProperty("webdriver.chrome.driver", "yandexdriver.exe");
     driver = new ChromeDriver();
     driver.get(BASE_URI);
     driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
