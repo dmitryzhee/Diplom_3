@@ -50,7 +50,7 @@ public class ConstructorTest extends BaseTest implements TestData {
   @Test
   public void bunSectionSelectSuccess() {
     Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
-    mainPageBurger.clickFillingSectionHeader();
+    mainPageBurger.clickFillingSectionHeader(); //Булки выбраны по умолчанию, проверяется что можно выбрать их после смены
     mainPageBurger.clickBunSectionHeader();
     WebElement bunSectionHeader = driver.findElement(mainPageBurger.getBunSectionHeader());
     WebElement currentSectionHeaderExpected = bunSectionHeader.findElement(mainPageBurger.getParentElement()); //родитель заголовка секции изменяется при ее выборе
