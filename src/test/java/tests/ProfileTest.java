@@ -65,7 +65,7 @@ public class ProfileTest extends BaseTest implements TestData{
   }
 
   @Test
-  public void returnToConstructorSuccess() {
+  public void returnToConstructorByConstructorLinkSuccess() {
     user = USER;
     client.createUser(user);
     MainPageBurger mainPageBurger = new MainPageBurger(driver);
@@ -74,6 +74,19 @@ public class ProfileTest extends BaseTest implements TestData{
     loginPageBurger.login(user.getEmail(), user.getPassword());
     mainPageBurger.clickProfileButton();
     mainPageBurger.clickConstructorLink();
+    Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
+  }
+
+  @Test
+  public void returnToConstructorByLogoSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
+    mainPageBurger.clickLoginLink();
+    loginPageBurger.login(user.getEmail(), user.getPassword());
+    mainPageBurger.clickProfileButton();
+    mainPageBurger.clickLogoBurger();
     Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
   }
 

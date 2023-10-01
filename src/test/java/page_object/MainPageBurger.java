@@ -66,6 +66,10 @@ public class MainPageBurger {
     pageHeaderBurger.clickConstructorLink();
   }
 
+  public void clickLogoBurger() {
+    pageHeaderBurger.clickLogoBurger();
+  }
+
   public void clickBunSectionHeader() {
     driver.findElement(bunSectionHeader).click();
   }

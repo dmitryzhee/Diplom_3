@@ -16,11 +16,18 @@ public class PageHeaderBurger {
     //ссылка на "Личный кабинет"
     private By profileLink = By.xpath("//p[text()='Личный Кабинет']");
 
+    //логотип
+    private By logoBurger = By.xpath("//div[contains(@class, 'AppHeader_header__logo')]");
+
     public void clickConstructorLink() {
         driver.findElement(constructorLink).click();
     }
 
     public void clickProfileLink() {
         driver.findElement(profileLink).click();
+    }
+
+    public void clickLogoBurger() {
+        driver.findElement(logoBurger).click();
     }
 }
