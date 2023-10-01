@@ -18,6 +18,8 @@ public interface TestData {
 
   User USER = User.builder().email("burgertest437@testburger.com").password("Ab12345!").name("TestyBurger").build();
 
+  User USER_PASSWORD_TOO_SHORT = User.builder().email("burgertest400@testburger.com").password("1234").name("TestyBurger").build();
+
   User RANDOM_USER = User.builder().email(String.format("test-burger%s@test.com", random.nextInt(9999))).password("Aa12345").name("John").build();
 
 

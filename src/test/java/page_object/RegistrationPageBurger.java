@@ -23,6 +23,12 @@ public class RegistrationPageBurger {
   //ссылка "Войти"
   private By loginLink = By.xpath("//a[text()='Войти']");
 
+  //сообщение "Некорректный пароль"
+  private By invalidPasswordError = By.xpath("//p[text()='Некорректный пароль']");
+
+  public By getInvalidPasswordError() {
+    return invalidPasswordError;
+  }
 
   public void fillNameField (String name) {
     driver.findElement(nameField).click();

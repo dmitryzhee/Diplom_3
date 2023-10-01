@@ -68,6 +68,18 @@ public class RegistrationTest extends BaseTest{
     Assert.assertTrue(isElementPresent(profilePageBurger.getLogoutButton()));
   }
 
+  @Test
+  public void registrationWithPasswordTooShortFailure() {
+    user = USER_PASSWORD_TOO_SHORT;
+    mainPageBurger = new MainPageBurger(driver);
+    loginPageBurger = new LoginPageBurger(driver);
+    registrationPageBurger = new RegistrationPageBurger(driver);
+    mainPageBurger.clickProfileButton();
+    loginPageBurger.clickRegisterLink();
+    registrationPageBurger.register(user.getEmail(), user.getPassword(), user.getName());
+    Assert.assertTrue(isElementPresent(registrationPageBurger.getInvalidPasswordError()));
+  }
+
 
 
 
