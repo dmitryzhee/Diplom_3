@@ -2,7 +2,6 @@ package page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class RegistrationPageBurger {
 
@@ -44,7 +43,7 @@ public class RegistrationPageBurger {
     driver.findElement(registerButton).click();
   }
 
-  public void register(String name, String email, String password) {
+  public void register(String email, String password, String name) {
     fillNameField(name);
     fillEmailField(email);
     fillPasswordField(password);

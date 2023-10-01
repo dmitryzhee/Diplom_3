@@ -7,18 +7,16 @@ public class MainPageBurger {
 
   private WebDriver driver;
 
+  private PageHeaderBurger pageHeaderBurger;
+
   public MainPageBurger(WebDriver driver) {
     this.driver = driver;
+    this.pageHeaderBurger = new PageHeaderBurger(driver);
   }
 
-  //кнопка "Личный кабинет"
-  private By profileButton = By.xpath("//p[text()='Личный Кабинет']");
 
   //кнопка "Войти в аккаунт"
-  private By loginLink = By.xpath("//p[text()='Личный Кабинет']");
-
-  //ссылка на "Конструктор"
-  private By constructorLink = By.xpath("//p[text()='Конструктор']");
+  private By loginLink = By.xpath("//button[text()='Войти в аккаунт']");
 
   //заголовок секции конструктора "Булки"
   private By bunSectionHeader = By.xpath("//span[text()='Булки']");
@@ -42,8 +40,8 @@ public class MainPageBurger {
     return currentSectionHeader;
   }
 
-  public void pressProfileButton() {
-    driver.findElement(profileButton).click();
+  public void clickProfileButton() {
+    pageHeaderBurger.clickProfileLink();
   }
 
   public void clickLoginLink() {
@@ -51,7 +49,7 @@ public class MainPageBurger {
   }
 
   public void clickConstructorLink() {
-    driver.findElement(constructorLink).click();
+    pageHeaderBurger.clickConstructorLink();
   }
 
   public void clickBunSectionHeader() {
@@ -65,6 +63,10 @@ public class MainPageBurger {
   public void clickFillingSectionHeader() {
     driver.findElement(fillingSectionHeader).click();
   }
+
+
+
+
 
 
 

@@ -36,15 +36,15 @@ public class ConstructorTest extends BaseTest implements TestData {
     super.tearDown();
   }
 
-//  @Test
-//  public void sectionSelectSuccess() {
-//    user = USER;
-//    client.createUser(user);
-//    MainPageBurger mainPageBurger = new MainPageBurger(driver);
-//    mainPageBurger.clickBunSectionHeader();
-//
-//
-//
-//
-//  }
+  @Test
+  public void sectionSelectSuccess() {
+    user = USER;
+    client.createUser(user);
+    MainPageBurger mainPageBurger = new MainPageBurger(driver);
+    mainPageBurger.clickConstructorLink();
+
+
+
+
+  }
 }

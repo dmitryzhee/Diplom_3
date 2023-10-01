@@ -53,7 +53,7 @@ public class LoginTest extends BaseTest implements TestData {
     client.createUser(user);
     MainPageBurger mainPageBurger = new MainPageBurger(driver);
     LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
-    mainPageBurger.pressProfileButton();
+    mainPageBurger.clickProfileButton();
     loginPageBurger.login(user.getEmail(), user.getPassword());
   }
 

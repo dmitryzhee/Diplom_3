@@ -6,6 +6,8 @@ public interface TestData {
 
   String BASE_URI = "https://stellarburgers.nomoreparties.site/";
 
+  String LOGIN_URI = "https://stellarburgers.nomoreparties.site/login";
+
   String USER_CREATION_ENDPOINT = "/api/auth/register";
 
   String USER_DATA_ENDPOINT = "/api/auth/user";

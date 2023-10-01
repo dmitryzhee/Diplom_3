@@ -46,7 +46,7 @@ public class ProfileTest extends BaseTest implements TestData{
     ProfilePageBurger profilePageBurger = new ProfilePageBurger(driver);
     mainPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
-    mainPageBurger.pressProfileButton();
+    mainPageBurger.clickProfileButton();
     Assert.assertTrue(isElementPresent(profilePageBurger.getLogoutButton()));
   }
 
@@ -59,7 +59,7 @@ public class ProfileTest extends BaseTest implements TestData{
     ProfilePageBurger profilePageBurger = new ProfilePageBurger(driver);
     mainPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
-    mainPageBurger.pressProfileButton();
+    mainPageBurger.clickProfileButton();
     profilePageBurger.logout();
     Assert.assertTrue(isElementPresent(loginPageBurger.getLoginButton()));
   }
@@ -72,7 +72,7 @@ public class ProfileTest extends BaseTest implements TestData{
     LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
     mainPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
-    mainPageBurger.pressProfileButton();
+    mainPageBurger.clickProfileButton();
     mainPageBurger.clickConstructorLink();
     Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
   }
