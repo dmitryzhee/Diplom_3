@@ -4,6 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import page_object.LoginPageBurger;
@@ -45,6 +46,7 @@ public class LoginTest extends BaseTest implements TestData {
     LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
     mainPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
+    Assert.assertTrue(isElementPresent(mainPageBurger.getMakeOrderButton()));
   }
 
   @Test
@@ -55,6 +57,7 @@ public class LoginTest extends BaseTest implements TestData {
     LoginPageBurger loginPageBurger = new LoginPageBurger(driver);
     mainPageBurger.clickProfileButton();
     loginPageBurger.login(user.getEmail(), user.getPassword());
+    Assert.assertTrue(isElementPresent(mainPageBurger.getMakeOrderButton()));
   }
 
   @Test
@@ -68,6 +71,7 @@ public class LoginTest extends BaseTest implements TestData {
     loginPageBurger.clickRegisterLink();
     registrationPageBurger.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
+    Assert.assertTrue(isElementPresent(mainPageBurger.getMakeOrderButton()));
   }
 
   @Test
@@ -81,6 +85,7 @@ public class LoginTest extends BaseTest implements TestData {
     loginPageBurger.clickRestorePasswordLink();
     restorePasswordPage.clickLoginLink();
     loginPageBurger.login(user.getEmail(), user.getPassword());
+    Assert.assertTrue(isElementPresent(mainPageBurger.getMakeOrderButton()));
   }
 
 

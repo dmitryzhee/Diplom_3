@@ -30,7 +30,12 @@ public class MainPageBurger {
   //заголовок выбранной в данный момент секция конструктора
   private By currentSectionHeader = By.xpath("//div[contains(@class, 'tab_type_current')]");
 
-  private By parentSection = By.xpath("..");
+  //родительский элемент (для поиска родительского элемента для текущего)
+  private By parentElement = By.xpath("..");
+
+  //кнопка "Оформить заказ"
+  private By makeOrderButton = By.xpath("//button[text()='Оформить заказ']");
+
 
 
 
@@ -46,8 +51,12 @@ public class MainPageBurger {
     return fillingSectionHeader;
   }
 
-  public By getParentSection() {
-    return parentSection;
+  public By getParentElement() {
+    return parentElement;
+  }
+
+  public By getMakeOrderButton() {
+    return makeOrderButton;
   }
 
   public By getCurrentSectionHeader() {

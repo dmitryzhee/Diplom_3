@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import page_object.LoginPageBurger;
 import page_object.MainPageBurger;
@@ -54,7 +53,7 @@ public class ConstructorTest extends BaseTest implements TestData {
     mainPageBurger.clickFillingSectionHeader();
     mainPageBurger.clickBunSectionHeader();
     WebElement bunSectionHeader = driver.findElement(mainPageBurger.getBunSectionHeader());
-    WebElement currentSectionHeaderExpected = bunSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderExpected = bunSectionHeader.findElement(mainPageBurger.getParentElement()); //родитель заголовка секции изменяется при ее выборе
     WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
     Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
   }
@@ -64,7 +63,7 @@ public class ConstructorTest extends BaseTest implements TestData {
     Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
     mainPageBurger.clickSauceSectionHeader();
     WebElement sauceSectionHeader = driver.findElement(mainPageBurger.getSauceSectionHeader());
-    WebElement currentSectionHeaderExpected = sauceSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderExpected = sauceSectionHeader.findElement(mainPageBurger.getParentElement()); //родитель заголовка секции изменяется при ее выборе
     WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
     Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
   }
@@ -74,7 +73,7 @@ public class ConstructorTest extends BaseTest implements TestData {
     Assert.assertTrue(isElementPresent(mainPageBurger.getBunSectionHeader()));
     mainPageBurger.clickFillingSectionHeader();
     WebElement fillingSectionHeader = driver.findElement(mainPageBurger.getFillingSectionHeader());
-    WebElement currentSectionHeaderExpected = fillingSectionHeader.findElement(mainPageBurger.getParentSection()); //родитель заголовка секции изменяется при ее выборе
+    WebElement currentSectionHeaderExpected = fillingSectionHeader.findElement(mainPageBurger.getParentElement()); //родитель заголовка секции изменяется при ее выборе
     WebElement currentSectionHeaderActual = driver.findElement(mainPageBurger.getCurrentSectionHeader());
     Assert.assertEquals(currentSectionHeaderExpected,currentSectionHeaderActual);
   }
