@@ -27,9 +27,7 @@ public class BaseTest implements TestData{
   }
 
   public boolean isElementPresent(By by) {
-    if (driver.findElement(by).isDisplayed()) {
-      return true;
-    } else return false;
+    return driver.findElement(by).isDisplayed();
   }
 }
 
